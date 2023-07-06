@@ -67,9 +67,7 @@ class Audio2Mel(nn.Module):
             center=False,
             return_complex=True
         )
-        print("View as real:", torch.view_as_real(fft).shape)
-        print("FFT:", fft.shape)
-        print("Unbined:", [i.shape for i in fft.unbind(-1)])
+        fft = torch.view_as_real(fft) # need this for recover the result of torch.stft
         real_part, imag_part = fft.unbind(-1)
         magnitude = torch.sqrt(real_part**2 + imag_part**2)
         mel_output = torch.matmul(self.mel_basis, magnitude)
