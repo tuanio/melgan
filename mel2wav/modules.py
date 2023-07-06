@@ -65,6 +65,7 @@ class Audio2Mel(nn.Module):
             win_length=self.win_length,
             window=self.window,
             center=False,
+            return_complex=True
         )
         print("FFT:", fft.shape)
         print("Unbined:", [i.shape for i in fft.unbind(-1)])
