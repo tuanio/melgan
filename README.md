@@ -38,5 +38,5 @@ Run these commands:
 
 ## PyTorch Hub Example
     import torch
-    vocoder = torch.hub.load('descriptinc/melgan-neurips', 'load_melgan')
+    vocoder = torch.hub.load('tuanio/melgan', 'load_melgan')
     vocoder.inverse(audio)  # audio (torch.tensor) -> (batch_size, 80, timesteps)
